@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bg-grey{
+    background-color: #f0f0f0;
+}
+/* testo principale */
+.blue{
+    color: #2c3e50;
+}
+/* tratteggi e asterischi */
+.mint{
+    color: #1abc9c;
+}
+/* lettere indovinate */
+.orange{
+    color: #e67e22;
+}
+/* messaggio vittoria */
+.green{
+    color: #27ae60;
+}
+/* messaggio sconfitta */
+.red{
+    color: #e74c3c;
+}
+/* bottone inizia */
+.brilliant{
+    color: #3498db;
+}
+/* bottone reset */
+.gold{
+    color: #f1c40f;
+}
