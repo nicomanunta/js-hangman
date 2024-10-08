@@ -12,7 +12,19 @@
     <div class="container d-flex justify-content-center align-items-center text-center vh-100">
         <div class="row">
             <div class="col-12">
-
+                <div class="col-12 position-relative">
+                    <button id="resetButton" class="btn-reset mt-3"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                    <h1 class="blue text-uppercase my-4">Indovina la parola!</h1>
+                </div>
+                <div class="col-12 text-center">
+                    <div id="randomWord" class="random-word"></div>
+                    <p id="result" class="result mb-5"> </p>
+                    <input type="text" id="inputText" class="input-text"   >
+                    <p id="lives" class="lives mt-4"></p>
+                </div>
+                <div>
+                    <button id="playButton" class="btn-play"></button>
+                </div>
             </div>
         </div>
     </div>
