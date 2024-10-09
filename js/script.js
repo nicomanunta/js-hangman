@@ -93,9 +93,11 @@ inputText.addEventListener('keydown', function(event){
             if (livesNumber === 0) {
                 result.innerHTML = `Hai perso! La parola era <span class="text-uppercase">"${randomWord}"</span>.`;
                 result.style.color = "#e74c3c";
+                result.style.animation = 'none';
                 inputText.style.display = "none"; // Disabilita l'input
                 againButton.style.display = 'inline'; // Mostra il bottone per rigiocare
-                againButton.style.animation = 'bounce 2.5s infinite'
+                againButton.style.animation = 'bounce 2.5s infinite';
+
             }
         } else {
             // Controlla se tutte le lettere sono state rivelate (quindi hai vinto)
