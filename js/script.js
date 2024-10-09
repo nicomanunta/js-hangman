@@ -49,15 +49,19 @@ againButton.addEventListener('click', () => {
     inputText.style.display = 'inline';
     againButton.style.display = 'none';
     lives.style.display = "inline";
+    livesNumber = 6;
+    lives.innerHTML = `Vite <br> ${livesNumber}`
 
 });
 resetButton.addEventListener('click', () =>{
     inputText.style.display = "none";
     playButton.style.display = 'inline';
+    againButton.style.display = 'none';
     randomWordDisplay.innerText = "";
     lives.style.display = "none";
-
-
+    livesNumber = 6;
+    lives.innerHTML = `Vite <br> ${livesNumber}`
+    result.innerText = "";
 })
 
 inputText.addEventListener('keydown', function(event){
@@ -88,16 +92,21 @@ inputText.addEventListener('keydown', function(event){
             // Se le vite sono finite, fine del gioco
             if (livesNumber === 0) {
                 result.innerHTML = `Hai perso! La parola era <span class="text-uppercase">"${randomWord}"</span>.`;
-                inputText.disabled = true; // Disabilita l'input
+                result.style.color = "#e74c3c";
+                inputText.style.display = "none"; // Disabilita l'input
                 againButton.style.display = 'inline'; // Mostra il bottone per rigiocare
+                againButton.style.animation = 'bounce 2.5s infinite'
             }
         } else {
             // Controlla se tutte le lettere sono state rivelate (quindi hai vinto)
             const isWordGuessed = [...randomWordDisplay.querySelectorAll('span')].every(span => span.classList.contains('revealed'));
             if (isWordGuessed) {
-                result.innerText = "Complimenti! Hai indovinato la parola!";
+                result.innerText = "Hai indovinato!";
+                result.style.animation = "bounce 2s infinite";
+                result.style.color = "#27ae60";
                 inputText.style.display = "none"; // Disabilita l'input
                 againButton.style.display = 'inline'; // Mostra il bottone per rigiocare
+                againButton.style.animation = 'none'
             }
         }
     

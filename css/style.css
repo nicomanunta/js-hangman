@@ -46,9 +46,17 @@
 
 .input-text{
     display: none;  
+    width: 30%;
+    height: 70px;
+    border-radius: 15px;
+    border: 0px;
+    outline: 4px solid #3498db7b;
+    font-size: 45px;
+    color: #2c3e50;
+
 }
 .input-text:focus{
-    outline: none;
+    outline: 4px solid #3498db;
 }
 
 .btn-again{
@@ -56,12 +64,102 @@
 }
 .lives{
     display: none;
+    font-size: 45px;
+    color: #2c3e50;
 }
 h1{
-    font-size: 60px;
+    font-size: 85px;
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.198);
 }
 .random-word{
-    font-size: 55px;
+    font-size: 65px;
     color: #1abc9c;
     font-weight: 900;
 }
+.revealed{
+    color: #e67e22;
+    text-transform: uppercase;
+}
+
+
+@keyframes bounce{
+    0% {
+        transform: translateX(0) scale(1.2);
+      }
+      25% {
+        transform: translateX(0) scale(1.0);
+      }
+      50% {
+        transform: translateX(0) scale(1.2);
+      }
+      75% {
+        transform: translateX(0) scale(1.0);
+      }
+      100% {
+        transform: translateX(0) scale(1.2);
+      }
+}
+.result{
+    font-size: 55px;  
+}
+
+
+
+
+/* btn */
+.btn-game{
+    background-color: #3498db;
+    color: white;
+    border: 3px solid #3498db;
+    border-radius: 15px;
+    padding: 8px 20px;
+    font-size: 40px;
+    box-shadow: 4px 6px rgba(0, 0, 0, 0.097);
+    
+}
+.btn-game:hover{
+    background-color: white;
+    color: #3498db;
+    border-color: #3498db;
+    
+}
+.btn-game:active{
+    background-color: rgb(247, 247, 247);
+    box-shadow: 2px 4px rgba(0, 0, 0, 0.19);
+    border-color: #3498db;
+    scale:0.98;
+    
+}
+
+
+
+.btn-reset{
+    background-color: #f1c40f;
+    color: white;
+    border: 3px solid #f1c40f;
+    border-radius: 8px;
+    padding: 5px 11px;
+    position: absolute;
+    top: -90px;
+    left: 10px;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.19);
+    font-size: 25px;
+}
+.btn-reset:hover{
+    background-color: white;
+    color: #f1c40f;
+    border: 3px solid #f1c40f;
+
+    
+    
+}
+.btn-reset:active{
+    background-color: rgb(250, 249, 249);
+    color: #f1c40f;
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.19);
+    scale:0.98;
+    
+}
+
+
+
