@@ -5,7 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Fredericka the Great", serif;
-    font-weight: 400;
+    ;
     font-style: normal;
 }
 
@@ -45,6 +45,23 @@
 
 
 .input-text{
+    display: none;  
+}
+.input-text:focus{
+    outline: none;
+}
+
+.btn-again{
     display: none;
-    
+}
+.lives{
+    display: none;
+}
+h1{
+    font-size: 60px;
+}
+.random-word{
+    font-size: 55px;
+    color: #1abc9c;
+    font-weight: 900;
 }

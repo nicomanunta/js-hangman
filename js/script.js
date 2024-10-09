@@ -6,6 +6,7 @@ let randomWordDisplay = document.getElementById('randomWord');
 let result = document.getElementById('result');
 let lives = document.getElementById('lives');
 let playButton = document.getElementById('playButton');
+let againButton = document.getElementById('againButton');
 let inputText = document.getElementById('inputText');
 
 let livesNumber = 6;
@@ -27,5 +28,82 @@ playButton.addEventListener('click', () => {
     });
     
     inputText.style.display = 'inline';
-    playButton.style.display = 'none'
+    playButton.style.display = 'none';
+    lives.style.display = "inline";
+});
+
+againButton.addEventListener('click', () => {
+    randomWord = words[Math.floor(Math.random() * words.length)];  
+    letters = randomWord.split("");
+    console.log(letters);
+
+    randomWordDisplay.innerText = '';
+    letters.forEach(index => {
+        let span = document.createElement('span');
+        span.classList.add('hidden-letter'); 
+        span.setAttribute('data-index', index); 
+        span.innerText = ' * '; 
+        randomWordDisplay.appendChild(span);
+    });
+    result.innerText = "";
+    inputText.style.display = 'inline';
+    againButton.style.display = 'none';
+    lives.style.display = "inline";
+
+});
+resetButton.addEventListener('click', () =>{
+    inputText.style.display = "none";
+    playButton.style.display = 'inline';
+    randomWordDisplay.innerText = "";
+    lives.style.display = "none";
+
+
 })
+
+inputText.addEventListener('keydown', function(event){
+    if (event.key === 'Enter') {
+
+        let userLetter = inputText.value.toLowerCase(); 
+
+
+        // Variabile per tenere traccia se la lettera è presente
+        let letterFound = false;
+
+        // Itera su ogni lettera della parola
+        letters.forEach((letter, index) => {
+            if (letter === userLetter) {
+                // Se la lettera coincide, rivela la lettera
+                let span = randomWordDisplay.querySelectorAll('span')[index];
+                span.innerText = letter;
+                span.classList.add('revealed'); // Aggiungi una classe per differenziare le lettere rivelate
+                letterFound = true; // Indica che la lettera è stata trovata
+            }
+        });
+
+        if (!letterFound) {
+            // Se la lettera non è stata trovata, diminuisci le vite
+            livesNumber--;
+            lives.innerHTML = `Vite <br> ${livesNumber}`;
+
+            // Se le vite sono finite, fine del gioco
+            if (livesNumber === 0) {
+                result.innerHTML = `Hai perso! La parola era <span class="text-uppercase">"${randomWord}"</span>.`;
+                inputText.disabled = true; // Disabilita l'input
+                againButton.style.display = 'inline'; // Mostra il bottone per rigiocare
+            }
+        } else {
+            // Controlla se tutte le lettere sono state rivelate (quindi hai vinto)
+            const isWordGuessed = [...randomWordDisplay.querySelectorAll('span')].every(span => span.classList.contains('revealed'));
+            if (isWordGuessed) {
+                result.innerText = "Complimenti! Hai indovinato la parola!";
+                inputText.style.display = "none"; // Disabilita l'input
+                againButton.style.display = 'inline'; // Mostra il bottone per rigiocare
+            }
+        }
+    
+
+        inputText.value = ''; // Pulisci l'input per il prossimo tentativo
+    }
+});
+
+
